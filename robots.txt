@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Allow crawling of important files
+Allow: /images/logobarn.png
+Allow: /manifest.json
+Allow: /admin/offers-api.php
+
+# Disallow admin dashboard (keep private)
+Disallow: /admin/dashboard.php
+Disallow: /admin/offers.json
+
+# Sitemap location (you can create this later)
+Sitemap: https://thebarnco.com/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
