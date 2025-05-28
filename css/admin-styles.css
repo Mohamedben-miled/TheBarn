@@ -24,6 +24,8 @@ body {
     font-family: 'Inter', sans-serif;
     background: var(--light-gray);
     color: #333;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Login Styles */
@@ -102,6 +104,8 @@ body {
 /* Admin Dashboard */
 .admin-container {
     min-height: 100vh;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 .admin-header {
@@ -388,30 +392,203 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr;
+    .admin-container {
+        padding: 0;
     }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
+
     .header-content {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+        padding: 15px;
     }
-    
+
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .admin-main {
+        padding: 20px 15px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 20px 15px;
+        margin: 0;
+    }
+
+    .card h2 {
+        font-size: 1.3rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
     .offer-item {
         flex-direction: column;
         gap: 15px;
+        padding: 15px;
     }
-    
+
     .offer-actions {
         align-self: flex-start;
+        flex-direction: row;
+        gap: 10px;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-item {
+        padding: 15px;
+    }
+
+    .quick-actions {
+        gap: 10px;
+    }
+
+    .action-btn {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    .add-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    .toggle-btn,
+    .delete-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .header-content {
+        padding: 20px;
+    }
+
+    .admin-main {
+        padding: 25px 20px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .admin-main {
+        padding: 15px 10px;
+    }
+
+    .card {
+        padding: 15px 10px;
+        border-radius: 10px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .offer-item {
+        padding: 12px;
+    }
+
+    .offer-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .offer-content p {
+        font-size: 0.9rem;
+    }
+
+    .offer-meta {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .discount {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+
+    .valid-until {
+        font-size: 0.8rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Login Form Mobile */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-form {
+        padding: 30px 20px;
+        max-width: 100%;
+        margin: 0 10px;
+    }
+
+    .login-form h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .admin-header {
+        position: relative;
+    }
+
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .header-content h1 {
+        font-size: 1.4rem;
     }
 }
