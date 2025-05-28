@@ -10,8 +10,8 @@ Allow: /admin/offers-api.php
 Disallow: /admin/dashboard.php
 Disallow: /admin/offers.json
 
-# Sitemap location (you can create this later)
-Sitemap: https://thebarnco.com/sitemap.xml
+# Sitemap location
+Sitemap: https://mohamedben-miled.github.io/TheBarn/sitemap.xml
 
 # Crawl delay (be nice to servers)
 Crawl-delay: 1

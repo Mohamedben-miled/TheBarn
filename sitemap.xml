@@ -1,66 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-    
-    <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage - Most Important for "coworking space soukra" -->
     <url>
-        <loc>https://thebarnco.com/</loc>
+        <loc>https://mohamedben-miled.github.io/TheBarn/</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <image:image>
-            <image:loc>https://thebarnco.com/images/logobarn.png</image:loc>
-            <image:title>The Barn Coworking Space Logo</image:title>
-            <image:caption>Eco-friendly coworking space logo</image:caption>
-        </image:image>
     </url>
-    
+
     <!-- About Section -->
     <url>
-        <loc>https://thebarnco.com/#about</loc>
+        <loc>https://mohamedben-miled.github.io/TheBarn/#about</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <!-- Features Section -->
     <url>
-        <loc>https://thebarnco.com/#features</loc>
+        <loc>https://mohamedben-miled.github.io/TheBarn/#features</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
-    <!-- Pricing Section -->
+
+    <!-- Pricing Section - Important for Business -->
     <url>
-        <loc>https://thebarnco.com/#pricing</loc>
+        <loc>https://mohamedben-miled.github.io/TheBarn/#pricing</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Gallery Section -->
     <url>
-        <loc>https://thebarnco.com/#gallery</loc>
+        <loc>https://mohamedben-miled.github.io/TheBarn/#gallery</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
-    <!-- Contact Section -->
+
+    <!-- Contact Section - Important for Local SEO -->
     <url>
-        <loc>https://thebarnco.com/#contact</loc>
+        <loc>https://mohamedben-miled.github.io/TheBarn/#contact</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Offers API (for dynamic content) -->
     <url>
-        <loc>https://thebarnco.com/admin/offers-api.php</loc>
+        <loc>https://mohamedben-miled.github.io/TheBarn/admin/offers-api.php</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
-    
+
 </urlset>
