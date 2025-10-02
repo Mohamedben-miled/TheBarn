@@ -1,5 +1,22 @@
 // Eco-Friendly JavaScript for The Barn
 
+// Immediate initialization to prevent flash
+(function() {
+    // Ensure navigation is visible immediately
+    const style = document.createElement('style');
+    style.textContent = `
+        .eco-nav { 
+            opacity: 1 !important; 
+            transform: translateY(0) !important; 
+        }
+        .hero-content { 
+            opacity: 1 !important; 
+            transform: translateY(0) !important; 
+        }
+    `;
+    document.head.appendChild(style);
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     // Eco loading screen
     const loadingScreen = document.getElementById('loading-screen');
@@ -25,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 600);
 
-    // Hide loading screen after plant growth animation
+    // Hide loading screen after plant growth animation - reduced time
     setTimeout(() => {
         clearInterval(messageInterval);
         progressText.textContent = "🌿 Welcome to your natural workspace!";
@@ -35,34 +52,32 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 startEcoAnimations();
-            }, 800);
-        }, 1000);
-    }, 4000);
+            }, 600);
+        }, 500);
+    }, 2500);
 });
 
 // Start eco-friendly animations
 function startEcoAnimations() {
-    // Animate navigation with natural ease
+    // Much more subtle navigation animation - just a gentle fade
     const nav = document.querySelector('.eco-nav');
-    nav.style.transform = 'translateY(-100px)';
-    nav.style.opacity = '0';
+    if (nav) {
+        nav.style.opacity = '0.8';
+        nav.style.transition = 'opacity 0.8s ease';
+        setTimeout(() => {
+            nav.style.opacity = '1';
+        }, 100);
+    }
 
-    setTimeout(() => {
-        nav.style.transition = 'all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        nav.style.transform = 'translateY(0)';
-        nav.style.opacity = '1';
-    }, 300);
-
-    // Animate hero content with organic movement
+    // Very subtle hero content animation - just a gentle fade
     const heroContent = document.querySelector('.hero-content');
-    heroContent.style.transform = 'translateY(50px)';
-    heroContent.style.opacity = '0';
-
-    setTimeout(() => {
-        heroContent.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        heroContent.style.transform = 'translateY(0)';
-        heroContent.style.opacity = '1';
-    }, 700);
+    if (heroContent) {
+        heroContent.style.opacity = '0.9';
+        heroContent.style.transition = 'opacity 1s ease';
+        setTimeout(() => {
+            heroContent.style.opacity = '1';
+        }, 200);
+    }
 
     // Add eco interactions
     addEcoInteractions();
@@ -508,3 +523,240 @@ plantGrowthStyle.textContent = `
     }
 `;
 document.head.appendChild(plantGrowthStyle);
+
+// FAQ Toggle Functionality
+function toggleFAQ(element) {
+    const faqItem = element.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    const toggle = element.querySelector('.faq-toggle');
+    
+    // Close other open FAQs
+    document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+            const otherAnswer = item.querySelector('.faq-answer');
+            const otherToggle = item.querySelector('.faq-toggle');
+            if (otherAnswer && otherToggle) {
+                otherAnswer.style.maxHeight = '0';
+                otherToggle.textContent = '+';
+                otherToggle.style.transform = 'rotate(0deg)';
+            }
+        }
+    });
+    
+    // Toggle current FAQ
+    if (answer.style.maxHeight === '0px' || !answer.style.maxHeight) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        toggle.textContent = '−';
+        toggle.style.transform = 'rotate(180deg)';
+    } else {
+        answer.style.maxHeight = '0';
+        toggle.textContent = '+';
+        toggle.style.transform = 'rotate(0deg)';
+    }
+}
+
+// Enhanced Testimonial Cards Animation
+function animateTestimonials() {
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    
+    testimonialCards.forEach((card, index) => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 15px 40px rgba(44, 96, 53, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 5px 15px rgba(44, 96, 53, 0.1)';
+        });
+    });
+}
+
+// Enhanced Amenity Cards Animation
+function animateAmenityCards() {
+    const amenityCards = document.querySelectorAll('.amenity-card');
+    
+    amenityCards.forEach((card, index) => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+            this.style.boxShadow = '0 12px 30px rgba(44, 96, 53, 0.15)';
+            
+            const icon = this.querySelector('.amenity-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.2) rotate(5deg)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 5px 15px rgba(44, 96, 53, 0.1)';
+            
+            const icon = this.querySelector('.amenity-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
+    });
+}
+
+// Enhanced Scroll Animations
+function enhancedScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                // Add stagger effect for grid items
+                if (entry.target.classList.contains('testimonial-card') || 
+                    entry.target.classList.contains('amenity-card')) {
+                    const siblings = entry.target.parentElement.children;
+                    Array.from(siblings).forEach((sibling, index) => {
+                        setTimeout(() => {
+                            sibling.style.opacity = '1';
+                            sibling.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observe new sections
+    document.querySelectorAll('.testimonial-card, .amenity-card, .faq-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// Initialize enhanced animations when DOM is loaded
+setTimeout(() => {
+    animateTestimonials();
+    animateAmenityCards();
+    enhancedScrollAnimations();
+}, 2000);
+
+// Interactive Plan Selector
+function highlightPlan(planType) {
+    // Remove active class from all selector buttons
+    document.querySelectorAll('.selector-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Add active class to clicked button
+    const clickedBtn = document.querySelector(`[data-plan="${planType}"]`);
+    if (clickedBtn) {
+        clickedBtn.classList.add('active');
+    }
+    
+    // Remove highlight from all pricing cards
+    document.querySelectorAll('.pricing-card').forEach(card => {
+        card.classList.remove('highlighted');
+    });
+    
+    // Highlight corresponding pricing card
+    let targetCard;
+    switch(planType) {
+        case 'student':
+            // Highlight student pack section
+            const studentSection = document.querySelector('.student-pack');
+            if (studentSection) {
+                studentSection.style.transform = 'scale(1.02)';
+                studentSection.style.boxShadow = '0 15px 40px rgba(240, 199, 94, 0.3)';
+                setTimeout(() => {
+                    studentSection.style.transform = 'scale(1)';
+                    studentSection.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+                }, 2000);
+            }
+            break;
+        case 'freelancer':
+            targetCard = document.querySelector('[data-plan-type="freelancer"]');
+            break;
+        case 'entrepreneur':
+            targetCard = document.querySelector('[data-plan-type="entrepreneur"]');
+            break;
+        case 'daily':
+            targetCard = document.querySelector('[data-plan-type="daily"]');
+            break;
+    }
+    
+    if (targetCard) {
+        targetCard.classList.add('highlighted');
+        targetCard.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+        
+        // Remove highlight after animation
+        setTimeout(() => {
+            targetCard.classList.remove('highlighted');
+        }, 3000);
+    }
+    
+    // Add some visual feedback
+    createPlanSelectionEffect(planType);
+}
+
+// Create visual effect when plan is selected
+function createPlanSelectionEffect(planType) {
+    const emojis = {
+        student: '🎓',
+        freelancer: '💻',
+        entrepreneur: '🚀',
+        daily: '☀️'
+    };
+    
+    const colors = {
+        student: '#6366f1',
+        freelancer: '#2c6035',
+        entrepreneur: '#87a96b',
+        daily: '#f4a261'
+    };
+    
+    // Create floating emoji effect
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            const emoji = document.createElement('div');
+            emoji.textContent = emojis[planType];
+            emoji.style.cssText = `
+                position: fixed;
+                left: ${Math.random() * 100}vw;
+                top: 100vh;
+                font-size: 2rem;
+                pointer-events: none;
+                z-index: 10000;
+                animation: planEmojiFloat 3s ease-out forwards;
+                color: ${colors[planType]};
+            `;
+            
+            document.body.appendChild(emoji);
+            
+            setTimeout(() => {
+                emoji.remove();
+            }, 3000);
+        }, i * 200);
+    }
+}
+
+// Add plan emoji float animation
+const planEmojiStyle = document.createElement('style');
+planEmojiStyle.textContent = `
+    @keyframes planEmojiFloat {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(planEmojiStyle);

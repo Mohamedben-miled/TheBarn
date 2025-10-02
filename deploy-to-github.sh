@@ -35,7 +35,7 @@ git commit -m "Complete eco-friendly coworking website
 - Mobile responsive design with hamburger navigation
 - PHP admin dashboard for managing offers
 - Clean gallery using aa folder images
-- Accurate working hours (Mon-Fri 8:30am-7pm)
+- Accurate working hours (Mon-Sat 8:30am-1:00am)
 - Modern eco-friendly design with plant animations
 - Contact form and pricing sections
 - Performance optimized and production ready"

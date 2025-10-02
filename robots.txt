@@ -4,14 +4,24 @@ Allow: /
 # Allow crawling of important files
 Allow: /images/logobarn.png
 Allow: /manifest.json
-Allow: /admin/offers-api.php
+Allow: /css/eco-styles.css
+Allow: /js/eco-script.js
 
-# Disallow admin dashboard (keep private)
-Disallow: /admin/dashboard.php
-Disallow: /admin/offers.json
+# Disallow unnecessary files
+Disallow: /aa/
+Disallow: /*.jfif$
+Disallow: /deploy-to-github.sh
+Disallow: /DEPLOYMENT.md
 
 # Sitemap location
 Sitemap: https://thebarncoworkingspace.com/sitemap.xml
 
 # Crawl delay (be nice to servers)
 Crawl-delay: 1
+
+# Additional directives for better SEO
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
