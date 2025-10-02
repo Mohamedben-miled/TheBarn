@@ -214,8 +214,8 @@
         },
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "47",
+            "ratingValue": "4.7",
+            "reviewCount": "3",
             "bestRating": "5",
             "worstRating": "1"
         },
@@ -229,9 +229,41 @@
                 "reviewRating": {
                     "@type": "Rating",
                     "ratingValue": "5",
-                    "bestRating": "5"
+                    "bestRating": "5",
+                    "worstRating": "1"
                 },
-                "reviewBody": "Excellent espace de coworking à Soukra! L'ambiance avec les plantes est parfaite pour la productivité."
+                "reviewBody": "Excellent espace de coworking à Soukra! L'ambiance avec les plantes est parfaite pour la productivité.",
+                "datePublished": "2024-12-15"
+            },
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person",
+                    "name": "Ahmed Ben Ali"
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "reviewBody": "Meilleur coworking à Ariana! WiFi 5G excellent et prix étudiant très abordable.",
+                "datePublished": "2024-12-10"
+            },
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person",
+                    "name": "Fatma Trabelsi"
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "4",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "reviewBody": "Très bon espace de travail pour freelancers. Ambiance calme et professionnelle.",
+                "datePublished": "2024-12-05"
             }
         ],
         "hasOfferCatalog": {
@@ -454,6 +486,56 @@
         "dateModified": "2025-01-15",
         "mainEntityOfPage": "https://thebarncoworkingspace.com",
         "image": "https://thebarncoworkingspace.com/aa/3a9f7a8d-05ff-4b88-9a2a-71354bd81c1d.jfif"
+    }
+    </script>
+    
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "The Barn Coworking Space",
+        "alternateName": "The Barn Tunisia",
+        "url": "https://thebarncoworkingspace.com",
+        "description": "Premier eco-friendly coworking space in Ariana, Tunisia",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://thebarncoworkingspace.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "sameAs": [
+            "https://www.facebook.com/thebarncoworking",
+            "https://www.instagram.com/thebarncoworking",
+            "https://www.linkedin.com/company/thebarncoworking"
+        ]
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://thebarncoworkingspace.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Coworking Ariana",
+                "item": "https://thebarncoworkingspace.com#about"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Pricing",
+                "item": "https://thebarncoworkingspace.com#pricing"
+            }
+        ]
     }
     </script>
 </head>
