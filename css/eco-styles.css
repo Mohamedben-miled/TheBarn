@@ -515,17 +515,15 @@ section {
 .feature-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: 1px solid var(--mint-green);
+    gap: 10px;
+    padding: 8px 12px;
     transition: all 0.3s ease;
+    border-radius: 8px;
 }
 
 .feature-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(44, 96, 53, 0.2);
+    background: rgba(135, 169, 107, 0.1);
+    color: var(--forest-green);
 }
 
 .feature-icon {
@@ -1525,25 +1523,41 @@ section {
     margin-bottom: 30px;
 }
 
-.feature-item {
+.pricing-card .feature-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(44, 96, 53, 0.1);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(44, 96, 53, 0.08);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
-.feature-item:last-child {
+.pricing-card .feature-item:last-child {
     border-bottom: none;
 }
 
-.feature-item.disabled {
+.pricing-card .feature-item:hover {
+    color: var(--forest-green);
+    padding-left: 5px;
+}
+
+.pricing-card .feature-item.disabled {
     opacity: 0.5;
 }
 
 .check, .cross {
-    font-size: 1.2rem;
-    width: 20px;
+    font-size: 1.1rem;
+    width: 18px;
+    font-weight: 600;
+}
+
+.check {
+    color: var(--forest-green);
+}
+
+.cross {
+    color: #e74c3c;
 }
 
 .plan-button {
@@ -1967,10 +1981,33 @@ section {
 }
 
 /* Mobile Responsive */
+/* Large Tablet Styles */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .hero-main {
+        gap: 40px;
+    }
+    
+    .pricing-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
 /* Tablet Styles */
 @media (max-width: 1024px) {
     .container {
         padding: 0 15px;
+    }
+    
+    .hero-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
     }
     
     .pricing-showcase {
@@ -1987,27 +2024,91 @@ section {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
+    
+    .features-showcase {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .eco-hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
 }
 
-/* Mobile Styles */
+/* Mobile-Only Design */
 @media (max-width: 768px) {
+    /* Mobile Body Reset */
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+        font-size: 16px;
+    }
+    
+    /* Mobile Navigation - Compact */
+    .eco-nav {
+        background: var(--natural-white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        height: 60px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    
+    .nav-container {
+        height: 60px;
+        padding: 0 15px;
+    }
+    
+    .logo-section {
+        gap: 8px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    
+    .eco-badge {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+    }
+    
     .nav-links {
         display: none;
         position: fixed;
-        top: 80px;
+        top: 60px;
         left: 0;
         width: 100vw;
-        height: calc(100vh - 80px);
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
+        height: calc(100vh - 60px);
+        background: var(--natural-white);
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        padding-top: 50px;
-        gap: 30px;
+        gap: 40px;
         z-index: 999;
         transition: all 0.3s ease;
-        box-sizing: border-box;
+    }
+    
+    .nav-link {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--forest-green);
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+        background: var(--light-green);
+        color: var(--forest-green);
     }
 
     .nav-links.active {
@@ -2016,36 +2117,293 @@ section {
 
     .mobile-toggle {
         display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+    }
+    
+    .mobile-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--forest-green);
+        border-radius: 2px;
+        transition: all 0.3s ease;
     }
 
-    /* Enhanced Hero Mobile Styles */
+    /* MOBILE-ONLY HERO DESIGN */
+    .eco-hero {
+        padding: 80px 0 60px;
+        min-height: 100vh;
+        background: linear-gradient(135deg, var(--light-green) 0%, var(--mint-green) 50%, var(--natural-white) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
     .hero-main {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        display: block;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    /* Mobile Hero Badge */
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: 2px solid var(--sage-green);
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--forest-green);
+        box-shadow: 0 4px 15px rgba(44, 96, 53, 0.2);
+    }
+    
+    /* Mobile Hero Title - Stacked Design */
+    .eco-hero-title {
+        font-size: 3.5rem;
+        line-height: 0.9;
+        margin-bottom: 25px;
+        font-weight: 800;
+    }
+    
+    .title-line-1 {
+        display: block;
+        font-size: 2.8rem;
+        color: var(--forest-green);
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+    
+    .title-line-2 {
+        display: block;
+    }
+    
+    .title-line-2 .highlight {
+        font-size: 4rem;
+        background: linear-gradient(45deg, var(--sage-green), var(--forest-green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        display: block;
+    }
+    
+    /* Mobile Subtitle */
+    .hero-subtitle {
+        font-size: 1.1rem;
+        color: var(--soft-gray);
+        margin-bottom: 20px;
+        font-weight: 500;
+        display: block;
         text-align: center;
     }
-
-    .hero-visual {
-        order: -1;
+    
+    .subtitle-icon {
+        font-size: 1.3rem;
+        margin-right: 8px;
     }
-
-    .eco-hero-title { 
-        font-size: 3rem; 
-        line-height: 1.2;
+    
+    .subtitle-accent {
+        display: block;
+        margin-top: 8px;
+        background: var(--golden-yellow);
+        color: var(--forest-green);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
     }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-        justify-content: center;
-    }
-
+    
+    /* Mobile Description */
     .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--soft-gray);
+        margin-bottom: 35px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Mobile Stats Cards */
+    .eco-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 40px 0;
+        padding: 0 10px;
+    }
+    
+    .eco-stat {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 20px 10px;
+        text-align: center;
+        border: 2px solid var(--mint-green);
+        box-shadow: 0 6px 20px rgba(44, 96, 53, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .eco-stat:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(44, 96, 53, 0.25);
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--forest-green);
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+        color: var(--soft-gray);
+        font-weight: 600;
+        line-height: 1.2;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Mobile Action Buttons */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+    
+    .eco-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 18px 30px;
         font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .eco-btn.primary {
+        background: linear-gradient(45deg, var(--forest-green), var(--sage-green));
+        color: white;
+        box-shadow: 0 6px 20px rgba(44, 96, 53, 0.3);
+    }
+    
+    .eco-btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(44, 96, 53, 0.4);
+    }
+    
+    .eco-btn.secondary {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--forest-green);
+        border: 2px solid var(--sage-green);
+    }
+    
+    .eco-btn.secondary:hover {
+        background: var(--light-green);
+        transform: translateY(-2px);
+    }
+    
+    /* Hide Desktop Elements on Mobile */
+    .hero-visual {
+        display: none;
+    }
+    
+    .hero-features {
+        display: none; /* Use stats instead */
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+    
+    /* Mobile Pricing Section */
+    .pricing-showcase {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .pricing-card.modern {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        padding: 25px 20px;
+        border: 2px solid var(--mint-green);
+        box-shadow: 0 8px 25px rgba(44, 96, 53, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .pricing-card.modern.featured {
+        transform: none;
+        background: linear-gradient(135deg, var(--light-green) 0%, rgba(255, 255, 255, 0.95) 100%);
+        border-color: var(--forest-green);
+        box-shadow: 0 12px 35px rgba(44, 96, 53, 0.25);
+    }
+    
+    .price-display .amount {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+    
+    /* Mobile Plan Selector */
+    .plan-selector {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border-radius: 25px;
+        padding: 20px 15px;
+        margin: 30px auto;
+        border: 2px solid var(--mint-green);
+        box-shadow: 0 8px 25px rgba(44, 96, 53, 0.15);
+    }
+    
+    .selector-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .selector-btn {
+        padding: 15px 10px;
+        font-size: 0.9rem;
     }
 
-    .hero-features {
-        justify-content: center;
-        gap: 15px;
+
+    /* Mobile Footer */
+    .footer-main {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    
+    .footer-section {
+        margin-bottom: 20px;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: var(--forest-green);
+    }
+    
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 
     .feature-item {
@@ -2443,6 +2801,15 @@ section {
     .pricing-card.modern {
         padding: 25px 20px;
     }
+    
+    .pricing-card .feature-item {
+        padding: 8px 0;
+        font-size: 0.9rem;
+    }
+    
+    .hero-features {
+        justify-content: center;
+    }
 
     .price-display .amount {
         font-size: 2.5rem;
@@ -2484,12 +2851,57 @@ section {
     .nav-container {
         padding: 0 15px;
         max-width: 100%;
+        height: 70px;
+    }
+    
+    .eco-nav {
+        height: 70px;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .eco-badge {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+    }
+    
+    .nav-links {
+        top: 70px;
+        height: calc(100vh - 70px);
     }
 
     /* Fix horizontal scroll issues */
     .eco-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
         max-width: 100%;
+        padding: 30px 0;
+        margin: 20px 0;
+    }
+    
+    .eco-stat {
+        padding: 20px 15px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        border: 1px solid var(--mint-green);
+        box-shadow: 0 4px 12px rgba(44, 96, 53, 0.1);
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        margin-bottom: 8px;
+        font-weight: 700;
+        color: var(--forest-green);
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        line-height: 1.3;
+        color: var(--soft-gray);
+        font-weight: 500;
     }
 
     .hero-buttons {
@@ -2542,39 +2954,96 @@ section {
 
 /* Small Mobile Styles */
 @media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .eco-hero {
+        padding: 100px 0 60px;
+        min-height: 90vh;
+    }
+    
     .eco-hero-title {
+        font-size: 2.2rem;
+        line-height: 1.1;
+        margin-bottom: 15px;
+    }
+    
+    .title-line-1 {
         font-size: 2rem;
-        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+    
+    .title-line-2 .highlight {
+        font-size: 2.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 5px;
     }
     
     .hero-description {
-        font-size: 0.9rem;
-        line-height: 1.4;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        padding: 0 5px;
     }
     
-    .section-title .title-main {
-        font-size: 1.8rem;
+    .hero-features {
+        gap: 6px;
     }
     
-    .section-title .title-highlight {
-        font-size: 2.5rem;
-    }
-    
-    .pricing-card {
-        padding: 15px;
-    }
-    
-    .plan-selector {
-        padding: 20px 15px;
-    }
-    
-    .container {
-        padding: 0 10px;
+    .feature-item {
+        padding: 6px 8px;
+        font-size: 0.75rem;
     }
     
     .eco-stats {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 8px;
+        padding: 15px 0;
+    }
+    
+    .eco-stat {
+        padding: 12px 8px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .section-title .title-main {
+        font-size: 1.6rem;
+    }
+    
+    .section-title .title-highlight {
+        font-size: 2.2rem;
+    }
+    
+    .pricing-card {
+        padding: 20px 15px;
+    }
+    
+    .plan-selector {
+        padding: 15px 10px;
+    }
+    
+    .nav-container {
+        height: 60px;
+    }
+    
+    .eco-nav {
+        height: 60px;
+    }
+    
+    .nav-links {
+        top: 60px;
+        height: calc(100vh - 60px);
     }
 }
 
